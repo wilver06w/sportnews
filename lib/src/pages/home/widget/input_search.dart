@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sportnews/src/shared/constant/colors.dart';
-
-import '../../../shared/constant/sport_news_ui.dart';
+import 'package:sportnews/src/shared/constant/sport_news_ui.dart';
 
 class InputSearch extends StatelessWidget {
   const InputSearch({

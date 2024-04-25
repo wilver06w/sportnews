@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:sportnews/src/shared/constant/colors.dart';
 
@@ -20,7 +19,7 @@ class InputSearch extends StatelessWidget {
         ),
         hintText: SportNewsUiValues.searchSportNews,
         hintStyle: TextStyle(
-          color: SportNewsUiColor.white,
+          color: Colors.white,
           fontSize: 18,
         ),
         prefixIcon: Icon(

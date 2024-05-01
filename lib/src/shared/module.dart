@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:sportnews/src/pages/home/page.dart';
+import 'package:sportnews/src/features/home/presentation/page.dart';
 
 class GlobalModule extends Module {
   @override

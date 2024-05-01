@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sportnews/src/pages/home/widget/image_widget.dart';
+import 'package:sportnews/src/features/home/presentation/widget/image_widget.dart';
 
 class ContainerAnimated extends StatelessWidget {
   const ContainerAnimated({

@@ -33,6 +33,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      routerConfig: Modular.routerConfig,
       title: SportNewsUiValues.appName,
       theme: ThemeData(
         scaffoldBackgroundColor: SportNewsUiColor.backgroundColor,
@@ -40,8 +41,6 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
           Theme.of(context).textTheme,
         ),
       ),
-      routeInformationParser: Modular.routeInformationParser,
-      routerDelegate: Modular.routerDelegate,
       builder: (context, child) {
         return MediaQuery(
           data: MediaQuery.of(context).copyWith(

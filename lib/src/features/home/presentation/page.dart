@@ -4,8 +4,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:gap/gap.dart';
 import 'package:sportnews/src/features/home/domain/usecases/listnews_usecase.dart';
 import 'package:sportnews/src/features/home/presentation/bloc/bloc.dart';
-import 'package:sportnews/src/features/home/presentation/widget/input_search.dart';
 import 'package:sportnews/src/features/home/presentation/widget/body.dart';
+import 'package:sportnews/src/features/home/presentation/widget/input_search.dart';
 import 'package:sportnews/src/shared/constant/sport_news_ui.dart';
 
 class Page extends StatelessWidget {

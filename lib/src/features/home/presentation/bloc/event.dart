@@ -8,3 +8,11 @@ abstract class HomeEvent extends Equatable {
 }
 
 class LoadListNewSportEvent extends HomeEvent {}
+
+class DeleteItemNewSportEvent extends HomeEvent {
+  const DeleteItemNewSportEvent({
+    required this.newsModels,
+  });
+
+  final NewsModels newsModels;
+}

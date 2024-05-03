@@ -7,6 +7,7 @@ import 'package:sportnews/src/features/home/presentation/bloc/bloc.dart';
 import 'package:sportnews/src/features/home/presentation/widget/container_animated.dart';
 import 'package:sportnews/src/features/home/presentation/widget/image_widget.dart';
 import 'package:sportnews/src/shared/constant/colors.dart';
+import 'package:sportnews/src/shared/constant/sport_news_ui.dart';
 
 class ListViewNews extends StatefulWidget {
   const ListViewNews({super.key});
@@ -68,11 +69,23 @@ class _CardCheckedState extends State<ListViewNews> {
   @override
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
-    return StreamBuilder<int>(
-        stream: selectedIndexStreamController.stream,
-        builder: (context, snapshot) {
-          return BlocBuilder<BlocHome, HomeState>(
-            builder: (context, state) {
+    return BlocBuilder<BlocHome, HomeState>(
+      builder: (context, state) {
+        selectedIndexStreamController.add(-1);
+        return StreamBuilder<int>(
+            stream: selectedIndexStreamController.stream,
+            builder: (context, snapshot) {
+              if (state.model.listNewsSport.isEmpty) {
+                return const Center(
+                  child: Text(
+                    SportNewsUiValues.noNewNewsComeBackSoon,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                );
+              }
               return ListView.separated(
                 shrinkWrap: true,
                 itemCount: state.model.listNewsSport.length,
@@ -114,14 +127,24 @@ class _CardCheckedState extends State<ListViewNews> {
                                       ),
                                       height: 160,
                                       width: double.infinity,
-                                      child: const Align(
+                                      child: Align(
                                         alignment: Alignment.centerRight,
                                         child: Padding(
-                                          padding: EdgeInsets.only(right: 20),
-                                          child: Icon(
-                                            Icons.delete,
-                                            color: Colors.white,
-                                            size: 30,
+                                          padding:
+                                              const EdgeInsets.only(right: 20),
+                                          child: InkWell(
+                                            onTap: () {
+                                              context.read<BlocHome>().add(
+                                                    DeleteItemNewSportEvent(
+                                                      newsModels: item,
+                                                    ),
+                                                  );
+                                            },
+                                            child: const Icon(
+                                              Icons.delete,
+                                              color: Colors.white,
+                                              size: 30,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -210,36 +233,8 @@ class _CardCheckedState extends State<ListViewNews> {
                   return const Gap(20);
                 },
               );
-            },
-          );
-        });
+            });
+      },
+    );
   }
 }
-
-// const listSportNews = [
-//   NewsModels(
-//     imageId: 'assets/img2.jpg',
-//     title: 'Football players Kids',
-//     id: 0,
-//   ),
-//   NewsModels(
-//     imageId: 'assets/img1.jpg',
-//     title: 'Football players Yellow',
-//     id: 1,
-//   ),
-//   NewsModels(
-//     imageId: 'assets/img3.jpg',
-//     title: 'Ball control',
-//     id: 2,
-//   ),
-//   NewsModels(
-//     imageId: 'assets/img4.jpg',
-//     title: 'Soccer play',
-//     id: 3,
-//   ),
-//   NewsModels(
-//     imageId: 'assets/img5.jpg',
-//     title: 'Throw-in Ball',
-//     id: 2,
-//   ),
-// ];

@@ -16,6 +16,10 @@ class LoadingListNewsSportState extends HomeState {
   const LoadingListNewsSportState(super.model);
 }
 
+class LoadingDeleteNewsSportState extends HomeState {
+  const LoadingDeleteNewsSportState(super.model);
+}
+
 class LoadingSearchState extends HomeState {
   const LoadingSearchState(super.model);
 }
@@ -27,9 +31,21 @@ class SearchBreedState extends HomeState {
 class LoadedListNewsSportState extends HomeState {
   const LoadedListNewsSportState(super.model);
 }
+class LoadedDeleteNewsSportState extends HomeState {
+  const LoadedDeleteNewsSportState(super.model);
+}
 
 class ErrorListNewsSportState extends HomeState {
   const ErrorListNewsSportState({
+    required Model model,
+    this.message = '',
+  }) : super(model);
+
+  final String message;
+}
+
+class ErrorDeleteItemNewsSportState extends HomeState {
+  const ErrorDeleteItemNewsSportState({
     required Model model,
     this.message = '',
   }) : super(model);
